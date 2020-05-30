@@ -43,7 +43,32 @@ describe('calculator', function () {
     assert.strictEqual(3, calculator.runningTotal);
    });
 
+   it('concatenate multiple number button clicks', function() {
+    calculator.numberClick(1); 
+    calculator.numberClick(2);
+    calculator.numberClick(3);
+    assert.strictEqual(123, calculator.runningTotal);
+   });
 
+   it('chain multiple operations together', function() {
+    calculator.numberClick(1); 
+    calculator.operatorClick("+");
+    calculator.numberClick(2);
+    calculator.operatorClick("-");
+    calculator.numberClick(1);
+    calculator.operatorClick("=");
+    assert.strictEqual(2, calculator.runningTotal);
+   });
 
+   it('clear the running total without affecting the calculation', function() {
+    calculator.numberClick(1); 
+    calculator.operatorClick("+");
+    calculator.numberClick(2);
+    calculator.operatorClick("+");
+    calculator.numberClick(1);
+    calculator.operatorClick("clr");
+    calculator.operatorClick("=");
+    assert.strictEqual(true, calculator.newTotal);
+   });
 
 });
