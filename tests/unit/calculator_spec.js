@@ -71,4 +71,6 @@ describe('calculator', function () {
     assert.strictEqual(true, calculator.newTotal);
    });
 
+
+
 });
