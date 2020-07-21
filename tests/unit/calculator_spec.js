@@ -6,42 +6,38 @@ describe('calculator', function () {
     calculator = new Calculator()
   });
 
-  // write unit tests here in the form of "it should do something..."
   it('it has a sample test', function(){
     assert.equal(true, true)
   })
 
-  it('should add numbers', function() {
-   calculator.numberClick(1); 
-   calculator.operatorClick("+");
-   calculator.numberClick(4);
-   calculator.operatorClick("=");
-   assert.strictEqual(5, calculator.runningTotal);
+  it('can add 1 to 1', function () {
+    calculator.previousTotal = 1;
+    calculator.add(1);
+    const actual = calculator.runningTotal;
+    assert.strictEqual(actual, 2);
   });
 
-  it('should subtract numbers', function() {
-    calculator.numberClick(7); 
-    calculator.operatorClick("-");
-    calculator.numberClick(4);
-    calculator.operatorClick("=");
-    assert.strictEqual(3, calculator.runningTotal);
-   });
+  it('can subtract 1 from 2', function () {
+    calculator.previousTotal = 2;
+    calculator.subtract(1);
+    const actual = calculator.runningTotal;
+    assert.strictEqual(actual, 1);
+  });
 
-   it('should multiply numbers', function() {
-    calculator.numberClick(3); 
-    calculator.operatorClick("*");
-    calculator.numberClick(5);
-    calculator.operatorClick("=");
-    assert.strictEqual(15, calculator.runningTotal);
-   });
+  it('can multiply 2 by 2', function () {
+    calculator.previousTotal = 2;
+    calculator.multiply(2);
+    const actual = calculator.runningTotal;
+    assert.strictEqual(actual, 4);
+  });
 
-   it('should divide numbers', function() {
-    calculator.numberClick(21); 
-    calculator.operatorClick("/");
-    calculator.numberClick(7);
-    calculator.operatorClick("=");
-    assert.strictEqual(3, calculator.runningTotal);
-   });
+  it('can divide 10 by 5', function () {
+    calculator.previousTotal = 10;
+    calculator.divide(5);
+    const actual = calculator.runningTotal;
+    assert.strictEqual(actual, 2);
+  });
+
 
    it('concatenate multiple number button clicks', function() {
     calculator.numberClick(1); 

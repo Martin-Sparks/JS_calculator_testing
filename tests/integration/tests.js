@@ -72,7 +72,7 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('1.3333333333333333')
   })
 
-  it('should hande large positive numbers', function() {
+  it('should handel large positive numbers', function() {
     running_total = element(by.css('#running_total'))
     element(by.css('#number1')).click();
     element(by.css('#number2')).click();
